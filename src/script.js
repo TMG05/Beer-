@@ -117,6 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const btnBraille = document.getElementById('btn-braille');
     const btnText = document.getElementById('btn-text'); 
+    const btnSpeech = document.getElementById('btn-speech');
+    const btnStopSpeech = document.getElementById('btn-stop-speech');
 
     btnBraille.addEventListener('click', () => {
         translatePageToBraille();
@@ -130,6 +132,25 @@ document.addEventListener('DOMContentLoaded', () => {
         btnBraille.style.display = 'block';
     });
 
-    document.getElementById('btn-speech').addEventListener('click', readPageAloud);
-    document.getElementById('btn-stop-speech').addEventListener('click', stopReading);
+    btnSpeech.addEventListener('click', readPageAloud);
+    btnStopSpeech.addEventListener('click', stopReading);
+
+    document.addEventListener('keydown', (event) => {
+        if (event.altKey && event.key.toLowerCase() === 'b') {
+            event.preventDefault(); // Empêche un comportement indésirable du navigateur
+            if (btnBraille.style.display !== 'none') {
+                btnBraille.click();
+            } else {
+                btnText.click();
+            }
+        }
+        if (event.altKey && event.key.toLowerCase() === 'l') {
+            event.preventDefault();
+            if (btnSpeech.style.display !== 'none') {
+                btnSpeech.click();
+            } else {
+                btnStopSpeech.click();
+            }
+        }
+    });
 });
