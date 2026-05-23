@@ -81,29 +81,23 @@ function getBestFrenchVoice() {
 
 function readPageAloud() {
     window.speechSynthesis.cancel(); 
-
     const menuText = document.getElementById('a11y-container').innerText;
-    let textToRead = document.body.innerText.replace(menuText, '').replace(/\n/g, '. ');
-    
+    let textToRead = document.body.innerText.replace(menuText, '').replace(/\n/g, '. ').replace(/([.!?])(?=[^\s])/g, "$1 ");
     currentUtterance = new SpeechSynthesisUtterance(textToRead);
     currentUtterance.lang = 'fr-FR'; 
-    
     const bestVoice = getBestFrenchVoice();
+    console.log(window.speechSynthesis.getVoices().map(v => `${v.name} (${v.lang})`));
     if (bestVoice) {
         currentUtterance.voice = bestVoice;
     }
-
-    currentUtterance.rate = 0.95;
-    currentUtterance.pitch = 1.0;
-    
+    currentUtterance.rate = 0.85; 
+    currentUtterance.pitch = 0.59; 
     document.getElementById('btn-speech').style.display = 'none';
     document.getElementById('btn-stop-speech').style.display = 'block';
-
     currentUtterance.onend = () => {
         document.getElementById('btn-speech').style.display = 'block';
         document.getElementById('btn-stop-speech').style.display = 'none';
     };
-
     window.speechSynthesis.speak(currentUtterance);
 }
 
