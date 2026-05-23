@@ -52,16 +52,49 @@ function revertPageToText() {
 }
 
 let currentUtterance = null;
+let availableVoices = [];
+
+function loadVoices() {
+    availableVoices = window.speechSynthesis.getVoices();
+}
+
+loadVoices();
+if (window.speechSynthesis.onvoiceschanged !== undefined) {
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function getBestFrenchVoice() {
+    const frenchVoices = availableVoices.filter(voice => voice.lang.startsWith('fr-'));
+
+    if (frenchVoices.length === 0) return null;
+
+    const premiumVoice = frenchVoices.find(voice => 
+        voice.name.includes('Google') || 
+        voice.name.includes('Microsoft') || 
+        voice.name.includes('Premium') ||
+        voice.name.includes('Neural') ||
+        voice.name.includes('Natural')
+    );
+
+    return premiumVoice || frenchVoices[0];
+}
 
 function readPageAloud() {
     window.speechSynthesis.cancel(); 
 
     const menuText = document.getElementById('a11y-container').innerText;
-    let textToRead = document.body.innerText.replace(menuText, '');
+    let textToRead = document.body.innerText.replace(menuText, '').replace(/\n/g, '. ');
     
     currentUtterance = new SpeechSynthesisUtterance(textToRead);
     currentUtterance.lang = 'fr-FR'; 
-    currentUtterance.rate = 1.0;     
+    
+    const bestVoice = getBestFrenchVoice();
+    if (bestVoice) {
+        currentUtterance.voice = bestVoice;
+    }
+
+    currentUtterance.rate = 0.95;
+    currentUtterance.pitch = 1.0;
     
     document.getElementById('btn-speech').style.display = 'none';
     document.getElementById('btn-stop-speech').style.display = 'block';
@@ -83,17 +116,17 @@ function stopReading() {
 document.addEventListener('DOMContentLoaded', () => {
     
     const btnBraille = document.getElementById('btn-braille');
-    const btnText = document.getElementById('btn-text');
+    const btnText = document.getElementById('btn-text'); 
 
     btnBraille.addEventListener('click', () => {
         translatePageToBraille();
-        btnBraille.style.display = 'none';
-        btnText.style.display = 'block';
+        btnBraille.style.display = 'none'; 
+        btnText.style.display = 'block';   
     });
 
     btnText.addEventListener('click', () => {
         revertPageToText();
-        btnText.style.display = 'none';
+        btnText.style.display = 'none';    
         btnBraille.style.display = 'block';
     });
 
