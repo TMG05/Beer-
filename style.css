@@ -1,18 +1,53 @@
+/* Définition des variables */
 body {
+    /* Palette Dark (Par défaut) */
+    --app-background: #0D141F;
+    --Subtle-Background: #111A27;
+    --UI-element-background: #112840;
+    --Hovered-UI-element-background: #113555;
+    --Active-UI-element-background: #154467;
+    --Subtle-borders-an-separators: #1B537B;
+    --UI-element-border-focus-rings: #1F6692;
+    --Hovered-UI-element-border: #197CAE;
+    --Solid-background: #7CE2FE;
+    --Hovered-solid-background: #A8EEFF;
+    --Low-contrast-text: #75C7F0;
+    --Hight-contrast-text: #C2F3FF;
+    
+    --transition: all 0.3s ease;
+
+    /* Application des variables par défaut */
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: var(--app-background);
+    color: var(--Hight-contrast-text);
+    transition: var(--transition);
+}
+
+/* Palette Light */
+body.light-theme {
+    --app-background: #F9FEFF;
+    --Subtle-Background: #F1FAFD;
+    --UI-element-background: #E1F6FD;
+    --Hovered-UI-element-background: #D1F0FA;
+    --Active-UI-element-background: #BEE7F5;
+    --Subtle-borders-an-separators: #A9DAED;
+    --UI-element-border-focus-rings: #8DCAE3;
+    --Hovered-UI-element-border: #60B3D7;
+    --Solid-background: #7CE2FE;
+    --Hovered-solid-background: #74DAF8;
+    --Low-contrast-text: #00749E;
+    --Hight-contrast-text: #1D3E56;
 }
 
 #a11y-container {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #2c3e50;
-    color: white;
+    background: var(--UI-element-background);
+    color: var(--Hight-contrast-text);
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -20,6 +55,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border: 1px solid var(--Subtle-borders-an-separators);
 }
 
 #a11y-container h3 {
@@ -34,17 +70,17 @@ body {
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
-    background: #ecf0f1;
-    color: #2c3e50;
-    transition: background 0.3s;
+    background: var(--Solid-background);
+    color: var(--UI-element-background);
+    transition: var(--transition);
 }
 
 #a11y-container button:hover {
-    background: #bdc3c7;
+    background: var(--Hovered-solid-background);
 }
 
 #btn-stop-speech {
-    background: #e74c3c !important;
+    background: #e74c3c !important; /* Vous pouvez ajuster cette couleur si besoin */
     color: white !important;
 }
 
