@@ -33,3 +33,45 @@ function translatePageToBraille() {
 
     walkDOM(document.body);
 }
+
+let currentUtterance = null;
+
+function readPageAloud() {
+    window.speechSynthesis.cancel(); 
+
+    const menuText = document.getElementById('a11y-container').innerText;
+    let textToRead = document.body.innerText.replace(menuText, '');
+    
+    currentUtterance = new SpeechSynthesisUtterance(textToRead);
+    currentUtterance.lang = 'fr-FR'; 
+    currentUtterance.rate = 1.0;     
+    
+    document.getElementById('btn-speech').style.display = 'none';
+    document.getElementById('btn-stop-speech').style.display = 'block';
+
+    currentUtterance.onend = () => {
+        document.getElementById('btn-speech').style.display = 'block';
+        document.getElementById('btn-stop-speech').style.display = 'none';
+    };
+
+    window.speechSynthesis.speak(currentUtterance);
+}
+
+function stopReading() {
+    window.speechSynthesis.cancel();
+    document.getElementById('btn-speech').style.display = 'block';
+    document.getElementById('btn-stop-speech').style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const btnBraille = document.getElementById('btn-braille');
+    btnBraille.addEventListener('click', () => {
+        translatePageToBraille();
+        btnBraille.disabled = true;
+        btnBraille.innerText = "Traduit en Braille";
+    });
+
+    document.getElementById('btn-speech').addEventListener('click', readPageAloud);
+    document.getElementById('btn-stop-speech').addEventListener('click', stopReading);
+});
