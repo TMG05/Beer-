@@ -115,28 +115,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnStopSpeech = document.getElementById('btn-stop-speech');
     const btnTheme = document.getElementById('btn-theme');
 
-    // 1. Vérification au chargement : applique le mode clair et l'icône SOLEIL si besoin
     if (localStorage.getItem('theme') === 'light') {
         document.body.classList.add('light-theme');
-        btnTheme.innerHTML = "☀️"; // Affiche le soleil car on est en mode clair
+        btnTheme.innerHTML = "☀️";
     } else {
-        btnTheme.innerHTML = "🌙"; // Affiche la lune car on est en mode sombre par défaut
+        btnTheme.innerHTML = "🌙";
     }
 
-    // 2. Gestion du clic pour basculer entre les thèmes
     btnTheme.addEventListener('click', () => {
         document.body.classList.toggle('light-theme');
         
         if (document.body.classList.contains('light-theme')) {
             localStorage.setItem('theme', 'light');
-            btnTheme.innerHTML = "☀️"; // Passe en mode clair -> met le soleil
+            btnTheme.innerHTML = "☀️";
         } else {
             localStorage.setItem('theme', 'dark');
-            btnTheme.innerHTML = "🌙"; // Passe en mode sombre -> met la lune
+            btnTheme.innerHTML = "🌙";
         }
     });
-
-    // --- Reste de vos événements (Braille, Speech, Keydown) qui ne changent pas ---
     btnBraille.addEventListener('click', () => {
         translatePageToBraille();
         btnBraille.style.display = 'none'; 
