@@ -15,3 +15,21 @@ function textToBraille(text) {
         return brailleDict[normalizedChar] || char; 
     }).join('');
 }
+
+function translatePageToBraille() {
+    const walkDOM = (node) => {
+        if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE' || (node.id && node.id === 'a11y-container')) {
+            return;
+        }
+
+        if (node.nodeType === 3 && node.nodeValue.trim() !== '') {
+            node.nodeValue = textToBraille(node.nodeValue);
+        } else {
+            for (let i = 0; i < node.childNodes.length; i++) {
+                walkDOM(node.childNodes[i]);
+            }
+        }
+    };
+
+    walkDOM(document.body);
+}
