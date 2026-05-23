@@ -21,16 +21,33 @@ function translatePageToBraille() {
         if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE' || (node.id && node.id === 'a11y-container')) {
             return;
         }
-
         if (node.nodeType === 3 && node.nodeValue.trim() !== '') {
-            node.nodeValue = textToBraille(node.nodeValue);
+            if (node.originalText === undefined) {
+                node.originalText = node.nodeValue;
+            }
+            node.nodeValue = textToBraille(node.originalText);
         } else {
             for (let i = 0; i < node.childNodes.length; i++) {
                 walkDOM(node.childNodes[i]);
             }
         }
     };
+    walkDOM(document.body);
+}
 
+function revertPageToText() {
+    const walkDOM = (node) => {
+        if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE' || (node.id && node.id === 'a11y-container')) {
+            return;
+        }
+        if (node.nodeType === 3 && node.originalText !== undefined) {
+            node.nodeValue = node.originalText; // On remet le texte normal
+        } else {
+            for (let i = 0; i < node.childNodes.length; i++) {
+                walkDOM(node.childNodes[i]);
+            }
+        }
+    };
     walkDOM(document.body);
 }
 
@@ -66,10 +83,18 @@ function stopReading() {
 document.addEventListener('DOMContentLoaded', () => {
     
     const btnBraille = document.getElementById('btn-braille');
+    const btnText = document.getElementById('btn-text');
+
     btnBraille.addEventListener('click', () => {
         translatePageToBraille();
-        btnBraille.disabled = true;
-        btnBraille.innerText = "Traduit en Braille";
+        btnBraille.style.display = 'none';
+        btnText.style.display = 'block';
+    });
+
+    btnText.addEventListener('click', () => {
+        revertPageToText();
+        btnText.style.display = 'none';
+        btnBraille.style.display = 'block';
     });
 
     document.getElementById('btn-speech').addEventListener('click', readPageAloud);
