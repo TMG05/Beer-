@@ -1,6 +1,4 @@
-/* Définition des variables */
 body {
-    /* Palette Dark (Par défaut) */
     --app-background: #0D141F;
     --Subtle-Background: #111A27;
     --UI-element-background: #112840;
@@ -16,7 +14,6 @@ body {
     
     --transition: all 0.3s ease;
 
-    /* Application des variables par défaut */
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
@@ -26,7 +23,6 @@ body {
     transition: var(--transition);
 }
 
-/* Palette Light */
 body.light-theme {
     --app-background: #F9FEFF;
     --Subtle-Background: #F1FAFD;
@@ -48,42 +44,79 @@ body.light-theme {
     right: 20px;
     background: var(--UI-element-background);
     color: var(--Hight-contrast-text);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    padding: 24px;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px var(--Subtle-borders-an-separators);
     z-index: 9999;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     border: 1px solid var(--Subtle-borders-an-separators);
+    backdrop-filter: blur(10px);
 }
 
 #a11y-container h3 {
     margin: 0;
     font-size: 16px;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--Solid-background);
 }
 
 #a11y-container button {
-    padding: 10px;
+    padding: 14px 24px;
     border: none;
-    border-radius: 4px;
+    border-radius: 50px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
     background: var(--Solid-background);
-    color: var(--UI-element-background);
+    color: var(--app-background);
     transition: var(--transition);
+    
+    box-shadow: 0 4px 15px var(--UI-element-border-focus-rings);
 }
 
 #a11y-container button:hover {
     background: var(--Hovered-solid-background);
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px var(--Hovered-UI-element-border);
+}
+
+#a11y-container button:active {
+    transform: scale(0.95);
 }
 
 #btn-stop-speech {
-    background: #e74c3c !important; /* Vous pouvez ajuster cette couleur si besoin */
+    background: #e74c3c !important;
     color: white !important;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4) !important;
 }
 
 #btn-stop-speech:hover {
     background: #c0392b !important;
+    box-shadow: 0 6px 25px rgba(231, 76, 60, 0.6) !important;
+}
+
+@keyframes shazamPulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--Subtle-borders-an-separators);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(27, 83, 123, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(27, 83, 123, 0);
+    }
+}
+
+#btn-speech {
+    animation: shazamPulse 2s infinite;
+}
+
+#btn-speech:hover {
+    animation: none;
 }
