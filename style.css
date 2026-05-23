@@ -120,3 +120,34 @@ body.light-theme {
 #btn-speech:hover {
     animation: none;
 }
+
+#btn-theme {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    padding: 0;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--Solid-background);
+    color: var(--app-background);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px var(--UI-element-border-focus-rings);
+}
+
+#btn-theme:hover {
+    background: var(--Hovered-solid-background);
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px var(--Hovered-UI-element-border);
+}
+
+#btn-theme:active {
+    transform: scale(0.9);
+}
