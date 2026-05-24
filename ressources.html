@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccèsSon — Ressources</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu</a>
+
+    <nav id="navbar">
+        <a href="index.html" id="nav-logo">AccèsSon</a>
+        <div id="nav-links">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="experience.html" class="nav-link">Expérience</a>
+            <a href="decouverte.html" class="nav-link">Découverte</a>
+            <a href="ressources.html" class="nav-link">Ressources</a>
+        </div>
+        <button id="btn-theme" aria-label="Changer le thème">🌙</button>
+    </nav>
+
+    <main id="main-content">
+
+        <section>
+            <h2>Outils d'accessibilité</h2>
+            <p>Le panneau d'accessibilité est disponible en bas à droite sur toutes les pages du site. Chaque outil peut être activé à la souris ou au clavier. Les préférences sont sauvegardées automatiquement pour vos prochaines visites.</p>
+
+            <div class="feature-item">
+                <div class="feature-item-title"><span>⠃</span> Traduction Braille</div>
+                <p>Convertit tout le texte de la page en caractères Braille unicode, compatibles avec les plages Braille tactiles. Un bouton "Texte normal" permet de revenir à l'affichage standard. Raccourci : <kbd>Alt</kbd> + <kbd>B</kbd>.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-item-title"><span>🔊</span> Lecture vocale</div>
+                <p>Lit l'intégralité du contenu de la page à voix haute en français, avec sélection automatique de la meilleure voix disponible sur le navigateur (Google ou Microsoft en priorité). Raccourci : <kbd>Alt</kbd> + <kbd>L</kbd>.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-item-title"><span>A±</span> Taille du texte</div>
+                <p>Augmente ou réduit la taille globale du texte par incréments de 2px, de 10px à 28px. Le bouton central remet la taille par défaut (16px). Raccourcis : <kbd>Alt</kbd> + <kbd>+</kbd> et <kbd>Alt</kbd> + <kbd>-</kbd>.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-item-title"><span>Aa</span> Police dyslexie</div>
+                <p>Active la police Lexend, conçue pour améliorer la lisibilité pour les personnes dyslexiques, avec un espacement accru entre les lettres et les mots. La préférence est sauvegardée.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-item-title"><span>◑</span> Haut contraste</div>
+                <p>Active un thème à contraste extrême (fond noir, texte blanc, accents jaunes) pour les personnes malvoyantes ou sensibles à la luminosité. La préférence est sauvegardée.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-item-title"><span>🌙</span> Thème clair / sombre</div>
+                <p>Bascule entre le thème sombre (par défaut) et le thème clair. Disponible via le bouton en haut à droite dans la barre de navigation. La préférence est sauvegardée.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Raccourcis clavier</h2>
+            <p>Tous les raccourcis utilisent la touche <kbd>Alt</kbd> combinée à une autre touche. Sur Mac, utilisez <kbd>Option</kbd> à la place de <kbd>Alt</kbd>.</p>
+
+            <table class="shortcut-table" aria-label="Liste des raccourcis clavier">
+                <thead>
+                    <tr>
+                        <th scope="col">Raccourci</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><kbd>Alt</kbd> + <kbd>B</kbd></td>
+                        <td>Activer / désactiver le mode Braille</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Alt</kbd> + <kbd>L</kbd></td>
+                        <td>Démarrer / stopper la lecture vocale</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Alt</kbd> + <kbd>M</kbd></td>
+                        <td>Lecture / Pause de la musique</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Alt</kbd> + <kbd>+</kbd></td>
+                        <td>Augmenter la taille du texte</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Alt</kbd> + <kbd>-</kbd></td>
+                        <td>Réduire la taille du texte</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Tab</kbd></td>
+                        <td>Naviguer entre les éléments interactifs</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>Entrée</kbd> / <kbd>Espace</kbd></td>
+                        <td>Activer un bouton ou un lien sélectionné</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Lecteur de musique</h2>
+            <p>Le lecteur audio est disponible sur la page <a href="experience.html">Expérience</a>. Il intègre notre son attribué dans le cadre du JAM musical.</p>
+
+            <div class="feature-item">
+                <div class="feature-item-title"><span>▶</span> Lecture / Pause</div>
+                <p>Démarre ou met en pause la musique. Lors de la lecture, le visualiseur de fréquences s'active et affiche le spectre sonore en temps réel. Raccourci : <kbd>Alt</kbd> + <kbd>M</kbd>.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-item-title"><span>━</span> Barre de progression</div>
+                <p>Affiche la position actuelle dans le morceau. Cliquez ou faites glisser pour vous déplacer à n'importe quel moment de la piste.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-item-title"><span>🔊</span> Volume</div>
+                <p>Contrôle le volume de lecture. L'icône change selon le niveau : muet (🔇), bas (🔉) ou élevé (🔊).</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Compatibilité navigateurs</h2>
+            <p>Ce site est compatible avec les navigateurs modernes suivants :</p>
+            <ul>
+                <li><strong>Chrome / Edge</strong> — compatibilité complète, y compris la synthèse vocale et le visualiseur audio</li>
+                <li><strong>Firefox</strong> — compatibilité complète</li>
+                <li><strong>Safari</strong> — compatible, mais les voix de synthèse vocale peuvent différer</li>
+            </ul>
+            <p>Le visualiseur de fréquences utilise l'API <strong>Web Audio</strong> et nécessite une interaction utilisateur (clic sur le bouton lecture) avant de pouvoir démarrer, conformément aux politiques d'autoplay des navigateurs modernes.</p>
+        </section>
+
+    </main>
+
+    <div id="a11y-container" role="complementary" aria-label="Outils d'accessibilité">
+        <h3>Accessibilité</h3>
+        <button id="btn-braille">Braille</button>
+        <button id="btn-text" style="display: none;">Texte normal</button>
+        <button id="btn-speech">🔊 Lire à l'oral</button>
+        <button id="btn-stop-speech" style="display: none;">⏹ Stopper</button>
+        <div id="a11y-font-size">
+            <span class="a11y-label">Taille du texte</span>
+            <div id="font-size-controls">
+                <button id="btn-font-decrease" aria-label="Réduire">A−</button>
+                <button id="btn-font-reset" aria-label="Défaut">A</button>
+                <button id="btn-font-increase" aria-label="Augmenter">A+</button>
+            </div>
+        </div>
+        <button id="btn-dyslexia" aria-pressed="false">Police dyslexie</button>
+        <button id="btn-high-contrast" aria-pressed="false">Haut contraste</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
