@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccèsSon — Découverte</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu</a>
+
+    <nav id="navbar">
+        <a href="index.html" id="nav-logo">AccèsSon</a>
+        <div id="nav-links">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="experience.html" class="nav-link">Expérience</a>
+            <a href="decouverte.html" class="nav-link">Découverte</a>
+            <a href="ressources.html" class="nav-link">Ressources</a>
+        </div>
+        <button id="btn-theme" aria-label="Changer le thème">🌙</button>
+    </nav>
+
+    <main id="main-content">
+
+        <section>
+            <h2>La musique pour tous</h2>
+            <p>La musique est souvent perçue comme un art purement auditif. Pourtant, des millions de personnes dans le monde l'apprécient différemment : par les vibrations, par la vision, par le toucher ou par l'analyse des partitions. Ce site explore ces façons alternatives de vivre la musique.</p>
+            <p>Les outils d'accessibilité présents sur ce site permettent à chacun, quelles que soient ses capacités, d'interagir avec le contenu musical à sa manière.</p>
+        </section>
+
+        <section>
+            <div class="topic-section">
+                <span class="topic-tag">Déficience auditive</span>
+                <h2>Pour les sourds et malentendants</h2>
+                <p>Les personnes sourdes ou malentendantes peuvent percevoir la musique grâce aux <strong>vibrations physiques</strong>. Evelyn Glennie, percussionniste professionnelle sourde, reçoit le son à travers ses pieds et ses mains posés sur les instruments.</p>
+                <p>La <strong>visualisation des fréquences</strong> est une autre approche : chaque fréquence sonore correspond à une couleur ou à une forme visuelle. Notre page Expérience traduit exactement cela — les barres qui s'animent représentent l'intensité de chaque fréquence en temps réel.</p>
+                <p>Des sous-titres synchronisés, des transcriptions et des représentations graphiques du rythme complètent ces approches pour rendre la musique pleinement lisible sans l'entendre.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="topic-section">
+                <span class="topic-tag">Déficience visuelle</span>
+                <h2>Pour les aveugles et malvoyants</h2>
+                <p>La notation musicale en <strong>Braille musical</strong> existe depuis 1829, développée par Louis Braille lui-même. Elle permet aux musiciens non-voyants de lire des partitions complètes avec les deux mains, comme tout autre musicien.</p>
+                <p>Notre traducteur Braille intégré (bouton "Braille" dans le panneau d'accessibilité) convertit le texte de la page en caractères Braille afin de le rendre compatible avec les plages Braille tactiles connectées.</p>
+                <p>La <strong>synthèse vocale</strong> (bouton "Lire à l'oral") lit l'intégralité du contenu de la page à voix haute, avec une voix française de haute qualité. Elle peut être démarrée et stoppée via le raccourci <kbd>Alt</kbd> + <kbd>L</kbd>.</p>
+                <p>Le <strong>haut contraste</strong> et les grandes tailles de texte permettent aux personnes malvoyantes de distinguer plus facilement le contenu visuel.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="topic-section">
+                <span class="topic-tag">Dyslexie &amp; troubles cognitifs</span>
+                <h2>Pour les personnes dyslexiques</h2>
+                <p>La dyslexie affecte la façon dont le cerveau traite les symboles écrits. Certaines polices de caractères, comme <strong>Lexend</strong>, ont été spécialement conçues pour améliorer la lisibilité pour les personnes dyslexiques, en augmentant l'espace entre les lettres et en rendant chaque caractère plus distinct.</p>
+                <p>Notre mode dyslexie (bouton "Police dyslexie") active automatiquement cette police ainsi qu'un espacement accru entre les mots et les lignes. La préférence est sauvegardée pour les visites suivantes.</p>
+                <p>Des textes courts, structurés en paragraphes clairs, avec des titres explicites, aident également les personnes ayant des difficultés de concentration ou de mémoire de travail.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="topic-section">
+                <span class="topic-tag">Mobilité réduite</span>
+                <h2>Pour les personnes à mobilité réduite</h2>
+                <p>Toutes les fonctionnalités de ce site sont accessibles sans souris, uniquement au clavier. Les raccourcis clavier permettent de contrôler la lecture musicale, le mode Braille, la synthèse vocale et la taille du texte sans quitter le clavier.</p>
+                <p>Les boutons sont dimensionnés pour être facilement cliquables sur écran tactile, et les zones interactives respectent une taille minimale de 44x44 pixels, conformément aux recommandations WCAG 2.1.</p>
+                <p>La navigation entre les pages est possible à la tabulation (<kbd>Tab</kbd>), avec des indicateurs de focus clairement visibles sur chaque élément interactif.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="topic-section">
+                <span class="topic-tag">Sensibilité aux animations</span>
+                <h2>Pour les personnes sensibles aux mouvements</h2>
+                <p>Certaines personnes, notamment celles souffrant d'épilepsie photosensible ou de troubles vestibulaires, peuvent être affectées par les animations vives ou les clignotements.</p>
+                <p>Ce site respecte automatiquement le paramètre système <strong>"Réduire les animations"</strong> (disponible sur Windows, macOS, iOS et Android). Lorsque cette préférence est activée, toutes les animations CSS sont désactivées, y compris la waveform et les effets de pulsation.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="a11y-container" role="complementary" aria-label="Outils d'accessibilité">
+        <h3>Accessibilité</h3>
+        <button id="btn-braille">Braille</button>
+        <button id="btn-text" style="display: none;">Texte normal</button>
+        <button id="btn-speech">🔊 Lire à l'oral</button>
+        <button id="btn-stop-speech" style="display: none;">⏹ Stopper</button>
+        <div id="a11y-font-size">
+            <span class="a11y-label">Taille du texte</span>
+            <div id="font-size-controls">
+                <button id="btn-font-decrease" aria-label="Réduire">A−</button>
+                <button id="btn-font-reset" aria-label="Défaut">A</button>
+                <button id="btn-font-increase" aria-label="Augmenter">A+</button>
+            </div>
+        </div>
+        <button id="btn-dyslexia" aria-pressed="false">Police dyslexie</button>
+        <button id="btn-high-contrast" aria-pressed="false">Haut contraste</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
