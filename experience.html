@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccèsSon — Expérience sonore</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-exp">
+    <a href="#exp-player" class="skip-link">Aller au lecteur</a>
+
+    <nav id="navbar">
+        <a href="index.html" id="nav-logo">AccèsSon</a>
+        <div id="nav-links">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="experience.html" class="nav-link">Expérience</a>
+            <a href="decouverte.html" class="nav-link">Découverte</a>
+            <a href="ressources.html" class="nav-link">Ressources</a>
+        </div>
+        <button id="btn-theme" aria-label="Changer le thème">🌙</button>
+    </nav>
+
+    <p class="sr-only" id="viz-desc">
+        Visualiseur de fréquences audio. Les barres représentent l'intensité des différentes fréquences sonores en temps réel. Utilisez le lecteur ci-dessous pour démarrer la musique.
+    </p>
+
+    <canvas id="visualizer" aria-labelledby="viz-desc" role="img"></canvas>
+
+    <div id="exp-header" aria-hidden="true">
+        <h1>Expérience Sonore</h1>
+        <p id="exp-hint">Appuyez sur ▶ pour visualiser le son</p>
+    </div>
+
+    <audio id="audio-exp" src="music.mp3" preload="auto"></audio>
+
+    <div id="exp-player" role="region" aria-label="Lecteur de musique">
+        <button id="btn-exp-play" aria-label="Lecture / Pause">▶</button>
+        <div id="exp-progress-wrap">
+            <input type="range" id="exp-progress" min="0" value="0" step="0.1" aria-label="Progression">
+            <div id="exp-time">
+                <span id="exp-current">0:00</span> / <span id="exp-duration">–:––</span>
+            </div>
+        </div>
+        <div id="exp-vol-wrap">
+            <span id="exp-vol-icon" aria-hidden="true">🔊</span>
+            <input type="range" id="exp-volume" min="0" max="1" step="0.01" value="0.7" aria-label="Volume">
+        </div>
+    </div>
+
+    <div id="a11y-container" role="complementary" aria-label="Outils d'accessibilité">
+        <h3>Accessibilité</h3>
+        <button id="btn-braille" style="display:none;">Braille</button>
+        <button id="btn-text" style="display: none;">Texte normal</button>
+        <button id="btn-speech" style="display:none;">🔊 Lire</button>
+        <button id="btn-stop-speech" style="display: none;">⏹ Stopper</button>
+        <div id="a11y-font-size" style="display:none;">
+            <span class="a11y-label">Taille du texte</span>
+            <div id="font-size-controls">
+                <button id="btn-font-decrease" aria-label="Réduire">A−</button>
+                <button id="btn-font-reset" aria-label="Défaut">A</button>
+                <button id="btn-font-increase" aria-label="Augmenter">A+</button>
+            </div>
+        </div>
+        <button id="btn-dyslexia" style="display:none;" aria-pressed="false">Police dyslexie</button>
+        <button id="btn-high-contrast" aria-pressed="false">Haut contraste</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="experience.js"></script>
+</body>
+</html>
