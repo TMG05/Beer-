@@ -3,26 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site Accessible</title>
+    <title>AccèsSon — La musique pour tous</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button id="btn-theme">🌙</button>
+    <a href="#main-content" class="skip-link">Aller au contenu</a>
 
-    <header>
-        <h1>Bienvenue sur mon site Web</h1>
-    </header>
-    <main>
-        <p>Ceci est un paragraphe d'exemple, afin de tester la traduction en braille et la synthèse vocale.</p>
-        <p>L'accessibilité web est essentielle. Pour permettre à tous d'utiliser Internet.</p>
+    <nav id="navbar">
+        <a href="index.html" id="nav-logo">AccèsSon</a>
+        <div id="nav-links">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="experience.html" class="nav-link">Expérience</a>
+            <a href="decouverte.html" class="nav-link">Découverte</a>
+            <a href="ressources.html" class="nav-link">Ressources</a>
+        </div>
+        <button id="btn-theme" aria-label="Changer le thème">🌙</button>
+    </nav>
+
+    <main id="main-content">
+        <section id="hero">
+            <div id="hero-content">
+                <h1>Ressentez la musique</h1>
+                <p>Un espace où la musique devient visible, tactile et universelle — accessible à chaque personne, quelle que soit sa situation.</p>
+                <a href="experience.html" id="hero-cta">Vivre l'expérience →</a>
+            </div>
+            <div id="hero-wave" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </section>
+
+        <section id="features">
+            <a href="experience.html" class="feature-card">
+                <div class="card-icon">🎛️</div>
+                <h2>Expérience sonore</h2>
+                <p>Visualisez notre son en temps réel grâce à un analyseur de fréquences interactif. Idéal pour les personnes sourdes ou malentendantes.</p>
+                <div class="card-arrow">→</div>
+            </a>
+            <a href="decouverte.html" class="feature-card">
+                <div class="card-icon">♿</div>
+                <h2>Découverte</h2>
+                <p>Explorez comment la musique peut être rendue accessible selon chaque type de handicap, avec des exemples concrets.</p>
+                <div class="card-arrow">→</div>
+            </a>
+            <a href="ressources.html" class="feature-card">
+                <div class="card-icon">⌨️</div>
+                <h2>Ressources</h2>
+                <p>Tous les outils d'accessibilité du site expliqués, avec les raccourcis clavier et les instructions d'utilisation.</p>
+                <div class="card-arrow">→</div>
+            </a>
+        </section>
     </main>
 
-    <div id="a11y-container">
+    <div id="a11y-container" role="complementary" aria-label="Outils d'accessibilité">
         <h3>Accessibilité</h3>
-        <button id="btn-braille">Traduire en Braille</button>
-        <button id="btn-text" style="display: none;">Revenir au texte normal</button>
-        <button id="btn-speech">Lire à l'oral</button>
-        <button id="btn-stop-speech" style="display: none;">Stopper la lecture</button>
+        <button id="btn-braille">Braille</button>
+        <button id="btn-text" style="display: none;">Texte normal</button>
+        <button id="btn-speech">🔊 Lire à l'oral</button>
+        <button id="btn-stop-speech" style="display: none;">⏹ Stopper</button>
+        <div id="a11y-font-size">
+            <span class="a11y-label">Taille du texte</span>
+            <div id="font-size-controls">
+                <button id="btn-font-decrease" aria-label="Réduire">A−</button>
+                <button id="btn-font-reset" aria-label="Défaut">A</button>
+                <button id="btn-font-increase" aria-label="Augmenter">A+</button>
+            </div>
+        </div>
+        <button id="btn-dyslexia" aria-pressed="false">Police dyslexie</button>
+        <button id="btn-high-contrast" aria-pressed="false">Haut contraste</button>
     </div>
 
     <script src="script.js"></script>
