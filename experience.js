@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     idleAnimId = requestAnimationFrame(drawIdle);
 
     function formatTime(s) {
+        if (isNaN(s)) return "0:00";
         const m = Math.floor(s / 60);
         return `${m}:${Math.floor(s % 60).toString().padStart(2, '0')}`;
     }
@@ -164,4 +165,30 @@ document.addEventListener('DOMContentLoaded', () => {
             btnPlay.click();
         }
     });
+
+    const trackSelect = document.getElementById('track-select');
+
+    if (trackSelect) {
+        trackSelect.addEventListener('change', (e) => {
+            const wasPlaying = !audio.paused;
+            
+            audio.src = e.target.value;
+            audio.load();
+
+            if (wasPlaying) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    btnPlay.textContent = '⏸';
+                    btnPlay.setAttribute('aria-label', 'Pause');
+                    if (hint) hint.textContent = 'Visualisation en cours…';
+                }).catch(err => console.error("Erreur de lecture :", err));
+            } else {
+                isPlaying = false;
+                btnPlay.textContent = '▶';
+                btnPlay.setAttribute('aria-label', 'Lecture');
+                progressBar.value = 0;
+                currentEl.textContent = '0:00';
+            }
+        });
+    }
 });

@@ -37,6 +37,18 @@
 
     <div id="exp-player" role="region" aria-label="Lecteur de musique">
         <button id="btn-exp-play" aria-label="Lecture / Pause">▶</button>
+        
+        <div id="exp-track-selector">
+            <label for="track-select" class="sr-only">Choisir une musique</label>
+            <select id="track-select" aria-label="Sélection du genre musical">
+                <option value="music.mp3">Fortnite</option>
+                <option value="citypop.mp3">City Pop Japonaise</option>
+                <option value="ost.mp3">Anime OST</option>
+                <option value="orchestral.mp3">Orchestral</option>
+                <option value="vocaloid.mp3">Vocaloid</option>
+            </select>
+        </div>
+
         <div id="exp-progress-wrap">
             <input type="range" id="exp-progress" min="0" value="0" step="0.1" aria-label="Progression">
             <div id="exp-time">
